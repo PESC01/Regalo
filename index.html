@@ -146,6 +146,9 @@
     </style>
   </head>
   <body>
+    <audio id="background-music" autoplay loop>
+      <source src="love.mp3" type="audio/mpeg" />
+    </audio>
     <div class="container">
       <div class="photo-frame">
         <img src="IMG-20241216-WA0007.jpg" alt="Foto romántica" />
@@ -165,6 +168,15 @@
     </div>
 
     <script>
+      document.addEventListener(
+        "click",
+        function initAudio() {
+          const audio = document.getElementById("background-music");
+          audio.play();
+          document.removeEventListener("click", initAudio);
+        },
+        { once: true }
+      );
       function createSnowflakes() {
         for (let i = 0; i < 50; i++) {
           const snowflake = document.createElement("div");
