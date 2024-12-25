@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a472a, #2d5a3f);
+        font-family: "Arial", sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+
+      .photo-frame {
+        width: 300px;
+        height: 400px;
+        margin: 20px auto;
+        border: 10px solid #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .message {
+        font-size: 20px;
+        margin: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        line-height: 1.6;
+      }
+
+      .signature {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #ff6b6b;
+      }
+
+      .snowflake {
+        position: fixed;
+        color: white;
+        font-size: 20px;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      .hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .heart {
+        position: absolute;
+        color: #ff6b6b;
+        font-size: 24px;
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="photo-frame">
+        <img src="IMG-20241216-WA0007.jpg" alt="Foto romántica" />
+      </div>
+      <div class="message">
+        Este año me dio muchos momentos especiales, pero el mejor de todos fue
+        conocerte. Eres el regalo más hermoso que la vida pudo darme, y cada día
+        contigo es una bendición que no cambio por nada. Gracias por ser tú.
+        <div class="signature">
+          TE AMO CON TODO MI SER MI AMADA ❤️ ESTHER ❤️<br />
+        </div>
+      </div>
+      <div class="hearts" id="hearts"></div>
+    </div>
+
+    <script>
+      // Crear copos de nieve
+      function createSnowflakes() {
+        for (let i = 0; i < 50; i++) {
+          const snowflake = document.createElement("div");
+          snowflake.className = "snowflake";
+          snowflake.style.left = Math.random() * 100 + "vw";
+          snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+          snowflake.innerHTML = "❅";
+          document.body.appendChild(snowflake);
+        }
+      }
+
+      // Crear corazones flotantes
+      function createHearts() {
+        const heartsContainer = document.getElementById("hearts");
+        for (let i = 0; i < 10; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.top = Math.random() * 100 + "%";
+          heart.style.animationDelay = Math.random() * 2 + "s";
+          heart.innerHTML = "❤️";
+          heartsContainer.appendChild(heart);
+        }
+      }
+
+      createSnowflakes();
+      createHearts();
+    </script>
+  </body>
+</html>
